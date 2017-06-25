@@ -1,0 +1,340 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custody
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-06 22:19+0000\n"
+"PO-Revision-Date: 2017-06-07 00:45+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: custody
+#: model:ir.model,name:custody.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr ""
+
+#. module: custody
+#: field:custody.equipment,bio:0
+msgid "Bio"
+msgstr "السيرة الذاتية"
+
+#. module: custody
+#: view:custody.custody:custody.custody_form_view
+#: selection:custody.custody,state:0
+msgid "Canceled"
+msgstr "الغاء"
+
+#. module: custody
+#: field:custody.equipment,category_id:0
+msgid "Category"
+msgstr "الفئة"
+
+#. module: custody
+#: view:custody.custody:custody.custody_form_view
+#: selection:custody.custody,state:0
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: custody
+#: field:custody.equipment,code:0 field:equipment.category,code:0
+msgid "Code"
+msgstr "الكود"
+
+#. module: custody
+#: model:ir.ui.menu,name:custody.configuration_manu
+msgid "Configuration"
+msgstr "الاعدادات"
+
+#. module: custody
+#: field:custody.custody,create_uid:0 field:custody.equipment,create_uid:0
+#: field:equipment.category,create_uid:0 field:equipment.item,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,create_date:0 field:custody.equipment,create_date:0
+#: field:equipment.category,create_date:0 field:equipment.item,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: custody
+#: view:custody.custody:custody.custody_form_view
+#: view:custody.custody:custody.custody_graph_view
+#: view:custody.custody:custody.custody_search_view
+#: model:ir.actions.act_window,name:custody.custody_custody_action
+#: model:ir.actions.report.xml,name:custody.report_custody_custody_report
+#: model:ir.module.category,name:custody.custody_security_category
+#: model:ir.ui.menu,name:custody.custody_custody
+#: model:ir.ui.menu,name:custody.custody_custody_menu
+#: model:ir.ui.menu,name:custody.custody_man_menu
+msgid "Custody"
+msgstr "العهدة"
+
+#. module: custody
+#: view:website:custody.report_custody_custody_doc
+msgid "Custody Equipment Report°"
+msgstr ""
+
+#. module: custody
+#: help:custody.custody,message_last_post:0
+#: help:custody.equipment,message_last_post:0
+#: help:equipment.category,message_last_post:0
+#: help:equipment.item,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: custody
+#: view:custody.custody:custody.custody_form_view
+#: selection:custody.custody,state:0
+msgid "Delivard"
+msgstr "تم التوصيل"
+
+#. module: custody
+#: field:custody.custody,deliv_date:0
+#: view:website:custody.report_custody_custody_doc
+msgid "Delivary Date"
+msgstr "تاريخ التوصيل"
+
+#. module: custody
+#: field:custody.custody,department:0
+#: view:website:custody.report_custody_custody_doc
+msgid "Department"
+msgstr "القسم"
+
+#. module: custody
+#: field:custody.custody,display_name:0 field:custody.equipment,display_name:0
+#: field:equipment.category,display_name:0 field:equipment.item,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: custody
+#: model:ir.model,name:custody.model_mail_thread
+msgid "Email Thread"
+msgstr ""
+
+#. module: custody
+#: view:custody.custody:custody.custody_search_view
+#: field:custody.custody,employee:0
+#: view:website:custody.report_custody_custody_doc
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: custody
+#: view:custody.custody:custody.custody_search_view
+#: field:custody.custody,equipment:0
+#: view:custody.equipment:custody.equipment_graph_view
+#: model:ir.actions.act_window,name:custody.custody_equipment_action
+#: model:ir.ui.menu,name:custody.equipment_configuration
+#: view:website:custody.report_custody_custody_doc
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: custody
+#: model:ir.actions.act_window,name:custody.equipment_category_action
+#: model:ir.ui.menu,name:custody.equipment_category_configuration
+msgid "Equipment Category"
+msgstr "فئة المعدات"
+
+#. module: custody
+#: model:ir.actions.act_window,name:custody.equipment_item_action
+msgid "Equipment Item"
+msgstr "اجزاء المعده"
+
+#. module: custody
+#: field:custody.custody,message_follower_ids:0
+#: field:custody.equipment,message_follower_ids:0
+#: field:equipment.category,message_follower_ids:0
+#: field:equipment.item,message_follower_ids:0
+msgid "Follow"
+msgstr "متابعه"
+
+#. module: custody
+#: view:custody.custody:custody.custody_search_view
+msgid "Group By"
+msgstr "مجموعة من"
+
+#. module: custody
+#: help:custody.custody,message_summary:0
+#: help:custody.equipment,message_summary:0
+#: help:equipment.category,message_summary:0
+#: help:equipment.item,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,id:0 field:custody.equipment,id:0
+#: field:equipment.category,id:0 field:equipment.item,code:0
+#: field:equipment.item,id:0
+msgid "ID"
+msgstr ""
+
+#. module: custody
+#: help:custody.custody,message_unread:0
+#: help:custody.equipment,message_unread:0
+#: help:equipment.category,message_unread:0
+#: help:equipment.item,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: custody
+#: selection:custody.custody,state:0
+msgid "In Progress"
+msgstr "تحت الطلب"
+
+#. module: custody
+#: view:custody.equipment:custody.equipment_form_view
+msgid "Internal Note"
+msgstr "مذكرة"
+
+#. module: custody
+#: field:custody.custody,message_is_follower:0
+#: field:custody.equipment,message_is_follower:0
+#: field:equipment.category,message_is_follower:0
+#: field:equipment.item,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: custody
+#: model:ir.ui.menu,name:custody.equipment_item_configuration
+msgid "Item"
+msgstr "اجزاء"
+
+#. module: custody
+#: field:custody.equipment,item_id:0
+msgid "Item id"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,message_last_post:0
+#: field:custody.equipment,message_last_post:0
+#: field:equipment.category,message_last_post:0
+#: field:equipment.item,message_last_post:0
+msgid "Last Message Date"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,__last_update:0
+#: field:custody.equipment,__last_update:0
+#: field:equipment.category,__last_update:0
+#: field:equipment.item,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,write_uid:0 field:custody.equipment,write_uid:0
+#: field:equipment.category,write_uid:0 field:equipment.item,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,write_date:0 field:custody.equipment,write_date:0
+#: field:equipment.category,write_date:0 field:equipment.item,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: custody
+#: model:res.groups,name:custody.custody_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: custody
+#: view:custody.custody:custody.custody_search_view
+msgid "Month"
+msgstr "شهر"
+
+#. module: custody
+#: field:custody.equipment,equipment:0 field:equipment.category,category:0
+#: field:equipment.item,item:0
+msgid "Name"
+msgstr "اﻻسم"
+
+#. module: custody
+#: selection:custody.custody,state:0
+msgid "New"
+msgstr "جديد"
+
+#. module: custody
+#: field:custody.custody,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: custody
+#: view:custody.custody:custody.custody_form_view
+msgid "Progress"
+msgstr "تحت الطلب"
+
+#. module: custody
+#: field:custody.custody,date:0
+#: view:website:custody.report_custody_custody_doc
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: custody
+#: field:custody.equipment,serial:0
+msgid "Serial Num"
+msgstr "الرقم السري"
+
+#. module: custody
+#: view:custody.equipment:custody.equipment_form_view
+#, fuzzy
+msgid "Specifications"
+msgstr "المواصفات"
+
+#. module: custody
+#: field:custody.custody,state:0
+#, fuzzy
+msgid "State"
+msgstr "مراحل"
+
+#. module: custody
+#: field:custody.custody,message_summary:0
+#: field:custody.equipment,message_summary:0
+#: field:equipment.category,message_summary:0
+#: field:equipment.item,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: custody
+#: model:res.groups,comment:custody.custody_manager
+msgid "The Manager can be read and create..etc"
+msgstr ""
+
+#. module: custody
+#: model:res.groups,comment:custody.custody_employee
+msgid "The user can be read and create only"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,message_unread:0
+#: field:custody.equipment,message_unread:0
+#: field:equipment.category,message_unread:0
+#: field:equipment.item,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: custody
+#: model:res.groups,name:custody.custody_employee
+#, fuzzy
+msgid "User"
+msgstr "المستخدم"
+
+#. module: custody
+#: field:custody.equipment,value:0
+msgid "Value"
+msgstr ""
+
+#. module: custody
+#: field:custody.custody,message_ids:0 field:custody.equipment,message_ids:0
+#: field:equipment.category,message_ids:0 field:equipment.item,message_ids:0
+msgid "send a message||log an internal note"
+msgstr ""

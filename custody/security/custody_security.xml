@@ -1,0 +1,32 @@
+<openerp>
+    <data>
+
+        <record model="ir.rule" id="custody_access">
+            <field name="name">Custody Access Rules</field>
+            <field name="model_id" ref="model_custody_custody"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+        <record id="custody_security_category" model="ir.module.category">
+            <field name="name">Custody</field>
+            <field name="sequence" eval="1"/>
+        </record>
+
+        <record id="custody_employee" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="custody.custody_security_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">The user can be read and create only</field>
+        </record>
+
+        <record id="custody_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="custody.custody_security_category"/>
+            <field name="implied_ids" eval="[(4, ref('custody.custody_employee'))]"/>
+        </record>
+    </data>
+</openerp>
+
