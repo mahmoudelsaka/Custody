@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+
+
+
+
+        <template id="report_custody_custody_doc">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+
+                    <h2>
+                        <span>Custody Report°</span>
+                    </h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Equipment</th>
+                                <th class="text-right">Department</th>
+                                <th class="text-right">Request Date</th>
+                                <th class="text-right">Delivery Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="custody_tbody">
+                            <t t-foreach="docs" t-as="l">
+                            <tr>
+                                <td>
+                                    <span t-field="l.employee"/>
+                                </td>
+                                <td>
+                                    <span t-field="l.equipment_id"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.department"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.date"/>
+                                </td>
+                                <td>
+                                    <span t-field="l.deliv_date"/>
+                                </td>
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </template>
+
+
+
+        <template id="report_custody_custody1">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="custody.report_custody_custody_doc" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="report_custody_custody_report"
+                string="Custody"
+                model="custody.custody"
+                report_type="qweb-pdf"
+                file="custody.report_custody_custody1"
+                name="custody.report_custody_custody1"
+        />
+
+
+    </data>
+</odoo>

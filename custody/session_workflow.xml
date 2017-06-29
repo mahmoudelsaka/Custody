@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record model="workflow" id="wkf_session">
+            <field name="name">Custody sessions workflow</field>
+            <field name="osv">custody.custody</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record model="workflow.activity" id="new">
+            <field name="name">New</field>
+            <field name="wkf_id" ref="wkf_session"/>
+            <field name="flow_start" eval="True"/>
+            <field name="kind">function</field>
+            <field name="action">action_new()</field>
+        </record>
+        <record model="workflow.activity" id="progress">
+            <field name="name">In Progress</field>
+            <field name="wkf_id" ref="wkf_session"/>
+            <field name="kind">function</field>
+            <field name="action">action_progress()</field>
+        </record>
+        <record model="workflow.activity" id="delivery">
+            <field name="name">Delivered</field>
+            <field name="wkf_id" ref="wkf_session"/>
+            <field name="kind">function</field>
+            <field name="action">action_delivery()</field>
+        </record>
+          <record model="workflow.activity" id="close">
+            <field name="name">Closed</field>
+            <field name="wkf_id" ref="wkf_session"/>
+            <field name="kind">function</field>
+            <field name="action">action_close()</field>
+        </record>
+          <record model="workflow.activity" id="cancel">
+            <field name="name">Canceled</field>
+            <field name="wkf_id" ref="wkf_session"/>
+            <field name="kind">function</field>
+            <field name="action">action_cancel()</field>
+        </record>
+
+        <record model="workflow.transition" id="session_new_to_progress">
+            <field name="act_from" ref="new"/>
+            <field name="act_to" ref="progress"/>
+            <field name="signal">progress</field>
+        </record>
+        <record model="workflow.transition" id="session_progress_to_delivery">
+            <field name="act_from" ref="progress"/>
+            <field name="act_to" ref="delivery"/>
+            <field name="signal">delivery</field>
+        </record>
+        <record model="workflow.transition" id="session_delivery_to_close">
+            <field name="act_from" ref="delivery"/>
+            <field name="act_to" ref="close"/>
+            <field name="signal">close</field>
+        </record>
+        <record model="workflow.transition" id="session_delivery_to_cancel">
+            <field name="act_from" ref="delivery"/>
+            <field name="act_to" ref="cancel"/>
+            <field name="signal">delivery</field>
+        </record>
+         <record model="workflow.transition" id="session_progress_to_cancel">
+            <field name="act_from" ref="progress"/>
+            <field name="act_to" ref="cancel"/>
+            <field name="signal">progress</field>
+        </record>
+    </data>
+</odoo>
