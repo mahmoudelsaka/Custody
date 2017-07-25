@@ -1,5 +1,5 @@
 {
-    'name': "custody",
+    'name': "Custody",
 
 
     'description': """
