@@ -4,6 +4,10 @@
     'description': """
       
     """,
+    
+    'category': 'Human Resources',
+
+
 
     'author': "Mahmoud Elsaka",
     'website': "http://www.elsaka.com",
