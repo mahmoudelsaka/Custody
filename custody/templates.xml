@@ -1,0 +1,344 @@
+<odoo>
+    <data>
+        <!--Custody Form View-->
+        <record id="custody_form_view" model="ir.ui.view">
+            <field name="name">Custody Form View</field>
+            <field name="model">custody.custody</field>
+            <field name="arch" type="xml">
+                <form string="Custody">
+                    <header>
+                        <button name="action_progress"
+                                string="Progress"
+                                type="object"
+                                groups="custody.custody_employee"
+                                states="new"
+                                class="btn-primary"/>
+                        <button name="action_delivery"
+                                string="Delivery"
+                                type="object"
+                                groups="custody.custody_manager"
+                                states="progress"
+                                class="btn-primary"/>
+                        <button name="action_cancel"
+                                states="new,progress"
+                                groups="custody.custody_manager"
+                                string="Canceled"
+                                class="btn-primary"
+                                type="object"/>
+                        <button name="action_close"
+                                states="delivery"
+                                groups="custody.custody_manager"
+                                string="Closed"
+                                class="btn-primary"
+                                type="object"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="new,progress,delivery"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee"/>
+                                <field name="department"/>
+                            </group>
+                            <group>
+                                <field name="equipment_id"/>
+                                <field name="date"/>
+                                <field name="deliv_date" states="delivery,close"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Custody Graph View-->
+        <record model="ir.ui.view" id="custody_graph_view">
+            <field name="name">Custody Graph View</field>
+            <field name="model">custody.custody</field>
+            <field name="arch" type="xml">
+                <graph string="Custody" type="bar">
+                    <field name="employee"/>
+                    <field name="equipment_id" operator="+"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="custody_pivot_view">
+            <field name="name">Custody Pivot View</field>
+            <field name="model">custody.custody</field>
+            <field name="arch" type="xml">
+                <pivot string="Custody">
+                    <field name="employee" type="row"/>
+                    <field name="equipment_id" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--Custody Search View-->
+        <record id="custody_search_view" model="ir.ui.view">
+            <field name="name">custody search view</field>
+            <field name="model">custody.custody</field>
+            <field name="arch" type="xml">
+                <search string="Custody">
+                    <field name="employee"/>
+                    <field name="equipment_id"/>
+                    <field name="department"/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_employee" context="{'group_by':'employee'}" string="Employee"/>
+                        <filter name="equipment_id" context="{'group_by': 'equipment_id'}" string="Equipment"/>
+                        <filter name="state" context="{'group_by': 'state'}" string="Status"/>
+                        <filter name="groupby_month" context="{'group_by': 'date:month'}" string="Month"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--action of module-->
+        <record id="custody_custody_action" model="ir.actions.act_window">
+            <field name="name">Custody</field>
+            <field name="res_model">custody.custody</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,pivot,form,graph</field>
+        </record>
+
+
+        <record id="custody_tree_view" model="ir.ui.view">
+            <field name="name">Custody Tree View</field>
+            <field name="model">custody.custody</field>
+            <field name="arch" type="xml">
+                <tree string="Custody">
+                    <field name="date"/>
+                    <field name="employee"/>
+                    <field name="equipment_id"/>
+                    <field name="department"/>
+                    <field name="deliv_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="custody_equipment_action" model="ir.actions.act_window">
+            <field name="name">Equipment</field>
+            <field name="res_model">custody.equipment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+        </record>
+
+        <record model="ir.ui.view" id="equipment_graph_view">
+            <field name="name">Equipment Graph View</field>
+            <field name="model">custody.equipment</field>
+            <field name="arch" type="xml">
+                <graph string="Equipment" type="bar">
+                    <field name="code"/>
+                    <field name="equipment" operator="+"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="equipment_pivot_view">
+            <field name="name">Equipment Pivot View</field>
+            <field name="model">custody.equipment</field>
+            <field name="arch" type="xml">
+                <pivot string="Equipment">
+                    <field name="code" type="row"/>
+                    <field name="equipment" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="custody_equipment_search_view" model="ir.ui.view">
+            <field name="name">Equipment search view</field>
+            <field name="model">custody.equipment</field>
+            <field name="arch" type="xml">
+                <search string="Equipment">
+                    <field name="equipment"/>
+                    <field name="code"/>
+                    <field name="serial"/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_equipment" context="{'group_by':'equipment'}" string="Equipment"/>
+                        <filter name="code" context="{'group_by': 'code'}" string="Code"/>
+                        <filter name="serial" context="{'group_by': 'serial'}" string="Serial Num"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="equipment_tree_view" model="ir.ui.view">
+            <field name="name">Equipment Tree View</field>
+            <field name="model">custody.equipment</field>
+            <field name="arch" type="xml">
+                <tree string="Equip">
+                    <field name="equipment"/>
+                    <field name="code"/>
+                    <field name="serial"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="equipment_form_view" model="ir.ui.view">
+            <field name="name">Equipment Form View</field>
+            <field name="model">custody.equipment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="equipment"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="serial"/>
+                                <field name="category_id"/>
+                                <field name="is_open" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page editabl="top" string="Specifications">
+                                <!--<field name="item_id" widget="many2many_tags" />-->
+                                <field name="item_ids">
+                                    <tree editable="bottom">
+                                        <field name="items" widget="many2one_tags"/>
+                                        <field name="code_id"/>
+                                        <field name="value_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Internal Note">
+                                <field name="bio"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="equipment_category_action" model="ir.actions.act_window">
+            <field name="name">Equipment Category</field>
+            <field name="res_model">equipment.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="equipment_actegory_tree_view" model="ir.ui.view">
+            <field name="name">Equipment Category Tree View</field>
+            <field name="model">equipment.category</field>
+            <field name="arch" type="xml">
+                <tree string="Categ">
+                    <field name="category"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="equipment_category_form_view" model="ir.ui.view">
+            <field name="name">Equipment Category Form View</field>
+            <field name="model">equipment.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="category"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="equipment_category_action" model="ir.actions.act_window">
+            <field name="name">Equipment Category</field>
+            <field name="res_model">equipment.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+
+
+
+        <record id="equipment_item_action" model="ir.actions.act_window">
+            <field name="name">Equipment Item</field>
+            <field name="res_model">equipment.item</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="equipment_item_tree_view" model="ir.ui.view">
+            <field name="name">Equipment Item Tree View</field>
+            <field name="model">equipment.item</field>
+            <field name="arch" type="xml">
+                <tree string="Item">
+                    <field name="item"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="equipment_item_form_view" model="ir.ui.view">
+            <field name="name">Equipment Item Form View</field>
+            <field name="model">equipment.item</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="item"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                                <field name="value" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <!--MENUITEM-->
+
+        <menuitem name="Custody" id="custody_man_menu"/>
+        <menuitem name="Custody" id="custody_custody_menu" parent="custody_man_menu"/>
+
+        <menuitem name="Custody" id="custody_custody" parent="custody_custody_menu"
+                  action="custody_custody_action"/>
+
+        <menuitem name="Configuration" id="configuration_manu" parent="custody_man_menu"/>
+        <menuitem name="Equipment" id="equipment_configuration" parent="configuration_manu"
+                  action="custody_equipment_action"/>
+
+        <menuitem name="Equipment Category" id="equipment_category_configuration"
+                  parent="configuration_manu" action="equipment_category_action"/>
+
+        <menuitem name="Item" id="equipment_item_configuration" parent="configuration_manu"
+                  action="equipment_item_action"/>
+
+    </data>
+</odoo>

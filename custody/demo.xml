@@ -1,0 +1,82 @@
+<openerp>
+    <data>
+        <record id="mt_code" model="mail.message.subtype">
+            <field name="name">Code</field>
+            <field name="res_model">equipment.category</field>
+            <field name="default" eval="True"/>
+            <field name="description">Code Change</field>
+        </record>
+        <record id="mt_category" model="mail.message.subtype">
+            <field name="name">Category Name</field>
+            <field name="res_model">equipment.category</field>
+            <field name="default" eval="True"/>
+            <field name="description">Category Name Change</field>
+        </record>
+
+
+          <record id="mt_bio" model="mail.message.subtype">
+            <field name="name">Notes</field>
+            <field name="res_model">custody.equipment</field>
+            <field name="default" eval="True"/>
+            <field name="description">Notes Change</field>
+        </record>
+        <record id="mt_category_id" model="mail.message.subtype">
+            <field name="name">Category Name</field>
+            <field name="res_model">custody.equipment</field>
+            <field name="default" eval="True"/>
+            <field name="description">Category Name Change</field>
+        </record>
+
+
+
+          <record id="mt_employee" model="mail.message.subtype">
+            <field name="name">Employee</field>
+            <field name="res_model">custody.custody</field>
+            <field name="default" eval="True"/>
+            <field name="description">Employee Selected</field>
+        </record>
+        <record id="mt_equipment" model="mail.message.subtype">
+            <field name="name">Equipment Name</field>
+            <field name="res_model">custody.custody</field>
+            <field name="default" eval="True"/>
+            <field name="description">Equipment Name Change</field>
+        </record>
+
+
+
+          <record id="mt_code" model="mail.message.subtype">
+            <field name="name">Code</field>
+            <field name="res_model">equipment.item</field>
+            <field name="default" eval="True"/>
+            <field name="description">Code Change</field>
+        </record>
+        <record id="mt_item" model="mail.message.subtype">
+            <field name="name">item Name</field>
+            <field name="res_model">equipment.item</field>
+            <field name="default" eval="True"/>
+            <field name="description">Item Name Created</field>
+        </record>
+
+        <!--  -->
+        <!--   <record id="object0" model="custody.custody"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="custody.custody"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="custody.custody"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="custody.custody"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="custody.custody"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</openerp>

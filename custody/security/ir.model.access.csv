@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custody_custody_employee,Custody Employee,model_custody_custody,custody_employee,1,1,1,0
+access_custody_equipment_employee,Custody Employee,model_custody_equipment,custody_employee,1,0,0,0
+access_equipment_category_employee,Custody Employee,model_equipment_category,custody_employee,1,0,0,0
+access_equipment_item_employee,Custody Employee,model_equipment_item,custody_employee,1,0,0,0
+access_custody_custody_manager,Custody Manager,model_custody_custody,custody_manager,1,1,1,0
+access_custody_equipment_manager,Custody Manager,model_custody_equipment,custody_manager,1,1,1,0
+access_equipment_category_manager,Custody Manager,model_equipment_category,custody_manager,1,1,1,0
+access_equipment_item_manager,Custody Manager,model_equipment_item,custody_manager,1,1,1,0
